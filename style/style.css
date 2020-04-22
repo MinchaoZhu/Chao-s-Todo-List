@@ -1,0 +1,50 @@
+#head1{
+ padding-bottom: 0%;
+ padding-top: 0.2%
+}
+
+
+.align-right{
+    float: right;
+}
+
+.hide{
+    display: none;
+}
+.block-flex{
+    display: flex;
+}
+
+.window-center{
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.btn{
+    background-color: rgb(17, 153, 221);
+    border-color: rgba(95,186,233);
+}
+
+.date-wrapper{
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: rgb(17, 153, 221);
+}
+
+.no-margin{
+    margin-left: 0em;
+    margin-right: 0em;
+}
+
+.padding-down{
+    padding-top: 4em;
+}
+
+.shenlan{
+    color: #405189;
+}

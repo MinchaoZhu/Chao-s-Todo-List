@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./style/login.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/todo.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/349ffbefec.js" crossorigin="anonymous"></script>
+  <script src="./script/sha256.js"></script>
+  <script src="./script/script.js"></script>
+  <script src="./script/login&regisetr.js"></script>
+  <script src="./script/afterLogin.js"></script>
+  <script src="./script/todo.js"></script>
+
+</head>
+<div class="wrapper fadeInDown window-center hide" id="loginForm">
+  <a class="form-close" href="#" style="color:rgba(95,186,233);padding-bottom: 1.5em;"><i
+      class="far fa-times-circle fa-3x"></i></a>
+
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first" style="padding: 2%; font-size: 20px; color:rgba(95,186,233)">
+      <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+      LOGIN
+    </div>
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="loginUserName" class="fadeIn second" name="loginUserName" placeholder="Username">
+      <input type="password" id="loginPassword" class="fadeIn third" name="login" placeholder="Password">
+    </form>
+    <button id="loginSubmit" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Login</a></button>
+
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+    <div id="formFooter1" class="loginHint hide" style="color:rgb(163, 41, 51)"></div>
+
+  </div>
+</div>
+
+<div class="wrapper fadeInDown window-center hide" id="registerForm">
+  <a class="form-close" href="#" style="color:rgba(95,186,233); padding-bottom: 1.5em;"><i
+      class="far fa-times-circle fa-3x"></i></a>
+
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first" style="padding: 2%; font-size: 20px; color:rgba(95,186,233)">
+      <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+      Register
+    </div>
+
+    <!-- Register Form -->
+    <form>
+      <input type="text" id="registerUserName" class="fadeIn second" name="registerUserName" placeholder="Username">
+      <input type="email" id="registerEmail" class="fadeIn third" name="registerEmail" placeholder="Email">
+      <input type="password" id="registerPassword" class="fadeIn third" name="registerPassword" placeholder="Password">
+    </form>
+
+    <button id="registerSubmit" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Sign Up</a></button>
+    <div id="formFooter2" class="registerHint hide" style="color:rgb(163, 41, 51)">
+    </div>
+
+  </div>
+</div>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://tools.bayesian.top/todo">Chao's Todo List</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="https://bayesian.top/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="https://tools.bayesian.top/">Chao's Tools</a>
+        <a class="nav-item nav-link" href="https://blog.bayesian.top/">Blog</a>
+        <a class="nav-item nav-link" href="https://service.bayesian.top/">Web Service</a>
+      </div>
+      <div class="navbar-nav">
+        <button class="btn btn-primary" id="registerBtn"><i class="fas fa-user"></i> Sign Up</button>
+        <div>&nbsp</div>
+        <button class="btn btn-primary" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <a class="nav-item nav-link hide" id="userBtn" href="#"><i class="fas fa-user"></i></span>
+          <dic id="welcomeHint"></dic>
+        </a>
+        <button class="btn btn-primary hide sync" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+
+
+    </div>
+  </nav>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col padding-down">
+        <div style="text-align: center;"><a id="previousDay" href="#" class="shenlan" ><i
+              class="far fa-arrow-alt-circle-left fa-3x"></i></a></div>
+      </div>
+      <div class="col-8">
+        <div class="date-wrapper shenlan"><dic id="date" class="date"></dic><a href="#" id="restoreToday" class="shenlan" style="padding-left: 0.5em;"><i
+          class="fas fa-undo-alt fa-1x"></i></a></div>
+        <div class="page-content page-container todo-container" id="midTodo">
+          <div class="padding">
+            <div class="row container d-flex justify-content-center no-margin">
+              <div class="col-lg-12">
+                <div class="card px-3">
+                  <div class="card-body">
+                    <h4 class="card-title">Chao's Todo list</h4>
+                    <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input"
+                        placeholder="What do you need to do today?"> <button
+                        class="add btn btn-primary font-weight-bold todo-list-add-btn sync">Add</button> </div>
+                    <div class="list-wrapper">
+                      <ul class="d-flex flex-column-reverse todo-list">
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col padding-down">
+        <div style="text-align: center;"><a id = "nextDay" class="shenlan" href="#"><i
+              class="far fa-arrow-alt-circle-right fa-3x"></i></a></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./script/sync.js"></script>
+</html>
