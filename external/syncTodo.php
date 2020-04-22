@@ -11,18 +11,12 @@ function sync(){
             $todoSql = new TodoSql();
             $date = $_POST["date"];
             $todoList = $_POST["todo_list"];
-            if(!$todoSql->clearTodo($username, $date)){
-                return "error";
-            };
-            for($i = 0; $i<count($todoList); $i++){
-                $todo_detail = $todoList[$i]["detail"];
-                $todo_status = $todoList[$i]["status"];
-                $todo_serial = $todoList[$i]["serial"];
-                if(!$todoSql->insertTodo($username, $todo_detail, $todo_status, $date, $todo_serial)){
-                    return "bbb error";
-                };
+            if($todoSql->syncTodo($username,$date,$todoList)){
+                return "success";
             }
-            return "Success";
+            else{
+                return "false";
+            }
         }
         else{
             return "Username Error";

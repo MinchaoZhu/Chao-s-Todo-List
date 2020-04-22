@@ -86,6 +86,7 @@ function addItem(item, status){
     newItem.append("<div class='form-check'><label class='form-check-label'><input class='checkbox sync' type='checkbox' />" + item + "<i class='input-helper'></i></label></div><i class='remove mdi mdi-close-circle-outline sync'></i>");
     if(status==2){
         $($(newItem).find(".checkbox")).attr('checked', 'checked');
+        $(newItem).closest("li").addClass('completed');
     }
     todoListItem.append(newItem);
     todoListInput.val("");

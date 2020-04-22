@@ -37,6 +37,28 @@ class MysqlConnector{
             return false;
         }
     }
+
+    function query_transaction($sql){
+        $conn = mysqli_connect($this->servername, $this->username, $this->password, $this->dbname);
+        if(!$conn){
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "begin;" . $sql;
+        $sqlList = explode(";", $sql);
+        foreach($sqlList as $s){
+            if(strlen($s)>0){
+                if(!mysqli_query($conn, $s)){
+                    mysqli_query($conn, "rollback;");
+                    $conn->close();
+                    return false;
+                }
+            }
+        }
+        mysqli_query($conn, "commit;");
+        $conn->close();
+        return true;
+    }
+
 }
 
 

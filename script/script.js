@@ -8,6 +8,7 @@ $(document).ready(function(){
     });
     $("#restoreToday").click(function(){
         loadToday();
+        $('.todo-list').empty();
         loadTodoList();
     });
 });
