@@ -34,10 +34,29 @@ class TodoSql{
         return $this->conn->query_json($sql);
     }
 
-    function testTransaction(){
-        $sql = sprintf("insert into `user` values(null, 'fosao','saadsadsa', 'dasdadsdsa');insert into `user` values(null, 'foo','sadsadsa', 'dasdasdsa');");
+    function dateRange($start_date, $end_date){
+        $stimestamp = strtotime($start_date);
+        $etimestamp = strtotime($end_date);
+        // 计算日期段内有多少天
+        $days = ($etimestamp-$stimestamp)/86400+1;
+        // 保存每天日期
+        $date = array();
+        for($i=0; $i<$days; $i++){
+            $date[] = date('Y-m-d', $stimestamp+(86400*$i));
+        }
+        return $date;
+    }
+
+    function addRegularTask($user_name, $todo_detail, $start_date, $end_date){
+        $sql = sprintf("insert into `regular_todo_list` values (null, '%s', '%s', '%s', '%s');", $user_name, $todo_detail, $start_date, $end_date);
+        $dateArr = $this->dateRange($start_date, $end_date);
+        foreach($dateArr as $date){
+            $itemSql = sprintf("insert into `todo_list` values (null, '%s', '%s', '1', '%s', '255');", $user_name, $todo_detail, $date);
+            $sql .= $itemSql;
+        }
         return $this->conn->query_transaction($sql);
     }
+
 
 }
 ?>

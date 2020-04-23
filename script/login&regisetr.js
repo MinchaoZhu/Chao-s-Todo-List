@@ -21,11 +21,8 @@ $(document).ready(function(){
 });
 
 function closeForm(){
-    $("#registerForm").addClass("hide");
-    $("#loginForm").addClass("hide");
-    $("#loginForm").removeClass("block-flex");
-    $("#registerForm").removeClass("block-flex");
-
+    $(".form-wrapper").removeClass("block-flex");
+    $(".form-wrapper").addClass("hide");
 }
 
 function resetForm(){

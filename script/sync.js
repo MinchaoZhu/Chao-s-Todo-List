@@ -44,6 +44,7 @@ function syncContent(){
 }
 
 function loadTodoList(date){
+    $('.todo-list').empty();
     var username = $("#userBtn").attr("username");
     var date = $("#date").attr("date");
     if(username!=""&&date!=""){

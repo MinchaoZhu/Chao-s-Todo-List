@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="./style/todo.css">
 
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
   <script src="https://kit.fontawesome.com/349ffbefec.js" crossorigin="anonymous"></script>
   <script src="./script/sha256.js"></script>
   <script src="./script/script.js"></script>
@@ -23,12 +24,19 @@
   <script src="./script/afterLogin.js"></script>
   <script src="./script/todo.js"></script>
 
+
+  <!-- date picker -->
+  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 </head>
-<div class="wrapper fadeInDown window-center hide" id="loginForm">
+
+<!-- login form -->
+<div class="form-wrapper wrapper fadeInDown window-center hide" id="loginForm">
   <a class="form-close" href="#" style="color:rgba(95,186,233);padding-bottom: 1.5em;"><i
       class="far fa-times-circle fa-3x"></i></a>
 
-  <div id="formContent">
+  <div class="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
@@ -45,20 +53,21 @@
 
 
     <!-- Remind Passowrd -->
-    <div id="formFooter">
+    <div class="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
 
-    <div id="formFooter1" class="loginHint hide" style="color:rgb(163, 41, 51)"></div>
+    <div class="formFooter loginHint hide" style="color:rgb(163, 41, 51)"></div>
 
   </div>
 </div>
 
-<div class="wrapper fadeInDown window-center hide" id="registerForm">
+<!-- register form -->
+<div class="form-wrapper wrapper fadeInDown window-center hide" id="registerForm">
   <a class="form-close" href="#" style="color:rgba(95,186,233); padding-bottom: 1.5em;"><i
       class="far fa-times-circle fa-3x"></i></a>
 
-  <div id="formContent">
+  <div class="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
@@ -75,11 +84,73 @@
     </form>
 
     <button id="registerSubmit" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Sign Up</a></button>
-    <div id="formFooter2" class="registerHint hide" style="color:rgb(163, 41, 51)">
+    <div class="formFooter registerHint hide" style="color:rgb(163, 41, 51)">
     </div>
 
   </div>
 </div>
+
+<!-- add regular task form -->
+<div class="form-wrapper wrapper fadeInDown window-center hide" id="regularTaskForm">
+  <a class="form-close" href="#" style="color:rgba(95,186,233); padding-bottom: 1.5em;"><i
+      class="far fa-times-circle fa-3x"></i></a>
+
+  <div class="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first" style="padding: 2%; font-size: 20px; color:rgba(95,186,233)">
+      <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+      New Regular Task
+    </div>
+    <form style="text-align: center;">
+    
+      <input type="text"  class="fadeIn second" id="startDate" width="415" placeholder="Start Date"/>
+      <input type="text"  class="fadeIn second" id="endDate" width="415" placeholder="End Date"/>
+
+    </form>
+    <!-- Add new task Form -->
+    <form style="text-align: center;">
+      <input type="text"  class="fadeIn third" id="regularDetail" name="taskContent" placeholder="What do you need to do?">
+    </form>
+
+    <button id="addRegularTask" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Add</a></button>
+    <div class="formFooter regularHint hide" style="color:rgb(163, 41, 51)">
+    </div>
+
+  </div>
+</div>
+
+<!-- deadline form -->
+<div class="form-wrapper wrapper fadeInDown window-center hide" id="deadlineForm">
+  <a class="form-close" href="#" style="color:rgba(95,186,233); padding-bottom: 1.5em;"><i
+      class="far fa-times-circle fa-3x"></i></a>
+
+  <div class="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first" style="padding: 2%; font-size: 20px; color:rgba(95,186,233)">
+      <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+      New Deadline
+    </div>
+    <div style="text-align: center;">
+    
+      <input type="text"  class="fadeIn second" id="ddlDate" width="415" placeholder="Deadline"/>
+
+    </div>
+    <!-- Add new task Form -->
+    <form style="text-align: center;">
+      <input type="text"  class="fadeIn third" name="taskContent" placeholder="What do you need to do?">
+    </form>
+
+    <button id="addDeadline" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Add</a></button>
+    <div class="formFooter deadlineHint hide" style="color:rgb(163, 41, 51)">
+    </div>
+
+  </div>
+</div>
+
 
 <body>
 
@@ -101,7 +172,7 @@
         <button class="btn btn-primary" id="registerBtn"><i class="fas fa-user"></i> Sign Up</button>
         <div>&nbsp</div>
         <button class="btn btn-primary" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
-        <a class="nav-item nav-link hide" id="userBtn" href="#"><i class="fas fa-user"></i></span>
+        <a class="nav-item nav-link hide" id="userBtn" href="#"><i class="fas fa-user"></i>
           <dic id="welcomeHint"></dic>
         </a>
         <button class="btn btn-primary hide sync" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
@@ -116,12 +187,14 @@
   <div class="container">
     <div class="row">
       <div class="col padding-down">
-        <div style="text-align: center;"><a id="previousDay" href="#" class="shenlan" ><i
+        <div style="text-align: center;"><a id="previousDay" href="#" class="shenlan"><i
               class="far fa-arrow-alt-circle-left fa-3x"></i></a></div>
       </div>
-      <div class="col-8">
-        <div class="date-wrapper shenlan"><dic id="date" class="date"></dic><a href="#" id="restoreToday" class="shenlan" style="padding-left: 0.5em;"><i
-          class="fas fa-undo-alt fa-1x"></i></a></div>
+      <div class="col-7">
+        <div class="date-wrapper shenlan">
+          <dic id="date" class="date"></dic><a href="#" id="restoreToday" class="shenlan"
+            style="padding-left: 0.5em;"><i class="fas fa-undo-alt fa-1x"></i></a>
+        </div>
         <div class="page-content page-container todo-container" id="midTodo">
           <div class="padding">
             <div class="row container d-flex justify-content-center no-margin">
@@ -145,12 +218,49 @@
         </div>
       </div>
       <div class="col padding-down">
-        <div style="text-align: center;"><a id = "nextDay" class="shenlan" href="#"><i
+        <div style="text-align: center;"><a id="nextDay" class="shenlan" href="#"><i
               class="far fa-arrow-alt-circle-right fa-3x"></i></a></div>
+            <div style="padding-top: 2.5em;">
+              <table>
+                <tr>
+                  <td><button class="btn btn-primary addNewRegularTaskBtn"><i class="far fa-calendar-plus fa-2x"></i></button></td>
+                  <td><a class="addNewRegularTaskBtn" style="color: #39ace7; font-size: 18px;" href="#">&nbspNew&nbspRegular&nbspTask</a></td>
+                </tr>
+                <tr>
+                  <td><button class="btn btn-primary addNewDeadline"><i class="far fa-calendar-plus fa-2x"></i></button></td>
+                  <td><a class="addNewDeadline" style="color: #39ace7; font-size: 18px;" href="#">&nbspNew&nbspDeadline</a></td>
+                </tr>
+              </table>
+            </div>
+
       </div>
     </div>
   </div>
 </body>
+<script>
+  $('#startDate').css("height", "63px").css("padding-left","80px").datepicker({
+    uiLibrary: 'bootstrap4'
+  });
+  $($('#startDate').parent()).css("width", "415px").css("padding-left", "30px");
+  $($('#startDate').parent()).find('span').css("padding-top", "5px");
+  $($('#startDate').parent()).find('i').css("padding-top", "12px");
 
+  $('#endDate').css("height", "63px").css("padding-left","80px").datepicker({
+    uiLibrary: 'bootstrap4'
+  });
+  $($('#endDate').parent()).css("width", "415px").css("padding-left", "30px");
+  $($('#endDate').parent()).find('span').css("padding-top", "5px");
+  $($('#endDate').parent()).find('i').css("padding-top", "12px");
+
+  $('#ddlDate').css("height", "63px").css("padding-left","80px").datepicker({
+    uiLibrary: 'bootstrap4'
+  });
+  $($('#ddlDate').parent()).css("width", "415px").css("padding-left", "30px");
+  $($('#ddlDate').parent()).find('span').css("padding-top", "5px");
+  $($('#ddlDate').parent()).find('i').css("padding-top", "12px");
+
+</script>
 <script src="./script/sync.js"></script>
+<script src="./script/addnew.js"></script>
+
 </html>

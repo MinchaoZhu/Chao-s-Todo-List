@@ -8,9 +8,9 @@ $(document).ready(function(){
     });
     $("#restoreToday").click(function(){
         loadToday();
-        $('.todo-list').empty();
         loadTodoList();
     });
+
 });
 
 
@@ -29,7 +29,7 @@ function currentDate(){
 
 function loadToday(){
     var d = new Date();
-    $(".date").html(d.toLocaleDateString()).attr("date", d.toLocaleDateString())
+    $(".date").html(d.toLocaleDateString()+" "+d.getDay()+" "+getWeekday(d.getDay())).attr("date", d.toLocaleDateString())
               .attr("timestamp", d.getTime());
 }
 
@@ -38,8 +38,19 @@ function loadAnotherDay(delta){
     var date = new Date(parseInt(time));
     date=date.setDate(date.getDate()+delta);
     date=new Date(date);
-    $(".date").html(date.toLocaleDateString()).attr("date", date.toLocaleDateString())
+    $(".date").html(date.toLocaleDateString()+" "+date.getDay()+" "+getWeekday(date.getDay())).attr("date", date.toLocaleDateString())
               .attr("timestamp", date.getTime());
-    $('.todo-list').empty();
     loadTodoList();
+}
+
+function getWeekday(i){
+    var weekday = new Array(7);
+    weekday[1] = "周一 Mon.";
+    weekday[2] = "周二 Tues.";
+    weekday[3] = "周三 Wed.";
+    weekday[4] = "周四 Thur.";
+    weekday[5] = "周五 Fri.";
+    weekday[6] = "周六 Sat.";
+    weekday[0] = "周日 Sun.";
+    return weekday[i];
 }

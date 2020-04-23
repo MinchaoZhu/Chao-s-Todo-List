@@ -22,7 +22,7 @@ create table if not exists `todo_list`(
     `todo_detail` varchar(128) not null,
     `todo_status_id` tinyint unsigned not null,
     `date` date not null,
-    `serial` tinyint not null,
+    `serial` tinyint unsigned not null,
     primary key (`todo_id`),
     index (`user_name`),
     index (`date`),
@@ -30,16 +30,16 @@ create table if not exists `todo_list`(
     foreign key (`todo_status_id`) references `todo_status` (`todo_status_id`)
 )engine=innodb default charset=utf8;
 
-create table if not exists `sustained_todo_list`(
-    `sustained_todo_id` int unsigned auto_increment,
-    `user_id` int unsigned not null,
+create table if not exists `regular_todo_list`(
+    `regular_todo_id` int unsigned auto_increment,
+    `user_name` varchar (64) not null,
     `todo_detail` varchar(128) not null,
     `start_date` date not null,
     `end_date` date not null,
-    primary key (`sustained_todo_id`),
-    index (`user_id`),
+    primary key (`regular_todo_id`),
+    index (`user_name`),
     index (`start_date`),
     index (`end_date`),
-    foreign key (`user_id`) references `user` (`user_id`)
+    foreign key (`user_name`) references `user` (`user_name`)
 )engine=innodb default charset=utf8;
 

@@ -10,7 +10,7 @@
     z-index:70;
   }
   
-  #formContent {
+  .formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
@@ -24,7 +24,7 @@
     text-align: center;
   }
   
-  #formFooter {
+  .formFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
     padding: 25px;
@@ -108,7 +108,7 @@
     transform: scale(0.95);
   }
   
-  input[type=text], input[type=password], input[type=email]{
+  input[type=text], input[type=password], input[type=email], input[type=date]{
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;

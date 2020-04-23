@@ -6,13 +6,13 @@ A cloud todo list Based on jQeury and php.
 1. User System
 2. Cloud synchronization
    - Every real-time change about todo list item will be synchronized on cloud database
-3. Todo list items restore
+3. Todo list items restoration
    - You can restore todo lists from any machine through your user account
-  
-
-TODO:
-- repeated event item
+4. Regular task items
   - Add same new items for several days
+  
+TODO:
+- Deadline event
 
 ## Resources and Tech stack
 
