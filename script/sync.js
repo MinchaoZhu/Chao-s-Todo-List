@@ -13,6 +13,9 @@ function sync() {
 function syncContent() {
     var username = $("#userBtn").attr("username");
     var date = $("#date").attr("date");
+    var newDate = new Date(date);
+    date = newDate.getFullYear()+"-"+((newDate.getMonth()+1)<10 ? '0' : '') + (newDate.getMonth()+1) + '-' +
+    (newDate.getDate()<10 ? '0' : '') + newDate.getDate();
     var todoList = [];
     $(".todoItem").each(function (index, item) {
         var detail = $(item).attr("content");
