@@ -10,7 +10,8 @@ A cloud todo list Based on jQeury and php.
    - You can restore todo lists from any machine through your user account
 4. Regular task items
   - Add same new items for several days
-5. Deadline items
+5. Deadline items on webpage
+6. Deadline synchronizairon when there is change on it.
 
 ## Resources and Tech stack
 
