@@ -52,3 +52,15 @@
 #regularTask{
     padding-top: 3em;
 }
+
+.no-left-right-padding{
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.date-change-btn{
+    font-size:13px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top:3px;
+}

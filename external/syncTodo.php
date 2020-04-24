@@ -11,6 +11,8 @@ function sync(){
             $todoSql = new TodoSql();
             $date = $_POST["date"];
             $todoList = $_POST["todo_list"];
+            if($todoList=="null")
+                $todoList = array();
             if($todoSql->syncTodo($username,$date,$todoList)){
                 return "success";
             }

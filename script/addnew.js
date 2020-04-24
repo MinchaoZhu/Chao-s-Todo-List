@@ -24,7 +24,7 @@ function addNewRegular(){
     (start.getDate()<10 ? '0' : '') + start.getDate();
     end_date =end.getFullYear()+"-"+(end.getMonth()+1<10 ? '0' : '') + (end.getMonth()+1) + '-' +
     (end.getDate()<10 ? '0' : '') + end.getDate();
-    if(detail!=""&&parseInt(start.getTime())<=parseInt(end.getTime())){
+    if(detail!=""&&start_date!=""&&end_date!=""&&parseInt(start.getTime())<=parseInt(end.getTime())){
         $.ajax({
             type: "POST",
             url: "./external/newRegular.php",
@@ -36,16 +36,21 @@ function addNewRegular(){
                 "end_date": end_date
             },
             success: function (data) {
-                console.log(data);
-                $(".regularHint").html("Add new regular task successfully").removeClass("hide");
-                setTimeout(function(){
-                    $(".regularHint").addClass("hide").html();        
-                    resetForm();
-                    $("#regularTaskForm").addClass("hide");
-                    $("#regularTaskForm").removeClass("block-flex");  
-                    $(".todo-list").empty();
-                    loadTodoList();
-                },  500);
+                if(data=="success"){
+                    console.log(data);
+                    $(".regularHint").html("Add new regular task successfully").removeClass("hide");
+                    setTimeout(function(){
+                        $(".regularHint").addClass("hide").html();        
+                        resetForm();
+                        $("#regularTaskForm").addClass("hide");
+                        $("#regularTaskForm").removeClass("block-flex");  
+                        $(".todo-list").empty();
+                        loadTodoList();
+                    },  500);
+                }
+                else{
+                    $(".regularHint").html(data);
+                }
             },
             error: function () {
                 console.log("error");

@@ -57,6 +57,35 @@ class TodoSql{
         return $this->conn->query_transaction($sql);
     }
 
+    function syncDeadline($deadlineItems, $user_name){
+        $sql = sprintf("delete from `deadline` where `user_name`='%s';", $user_name);
+        for($i = 0; $i<count($deadlineItems); $i++){
+            $detail = $deadlineItems[$i]["detail"];
+            $status = $deadlineItems[$i]["status"];
+            $due_date = $deadlineItems[$i]["due_date"];
+            $itemInsertSql  = sprintf("insert into `deadline` values (null, '%s', '%s', '%s', '%s');", $user_name, $detail, $due_date, $status);
+            $sql = $sql.$itemInsertSql;
+        }
+        return $this->conn->query_transaction($sql);
+    }
+
+    function listDeadline($user_name){
+        $deadlineItems = array();
+
+        $sql = sprintf("select * from `deadline` where `user_name`='%s' and `deadline_status_id`=1 order by `due_date` desc;", $user_name);
+        $result = $this->conn->query_json($sql);
+        $deadlineItems[] = $result;
+
+        $sql = sprintf("select * from `deadline` where `user_name`='%s' and `deadline_status_id`=2 order by `due_date` asc;", $user_name);
+        $result = $this->conn->query_json($sql);
+        $deadlineItems[] = $result;
+        return $deadlineItems;
+    }
+
+    function addDeadline($user_name, $detail, $due_date){
+        $sql  = sprintf("insert into `deadline` values (null, '%s', '%s', '%s', '1');", $user_name, $detail, $due_date);
+        return $this->conn->query($sql);
+    }
 
 }
 ?>

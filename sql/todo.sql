@@ -43,3 +43,15 @@ create table if not exists `regular_todo_list`(
     foreign key (`user_name`) references `user` (`user_name`)
 )engine=innodb default charset=utf8;
 
+create table if not exists `deadline`(
+    `deadline_id` int unsigned auto_increment,
+    `user_name` varchar (64) not null,
+    `deadline_detail` varchar(128) not null,
+    `due_date` date not null,
+    `deadline_status_id` tinyint unsigned not null,
+    primary key (`deadline_id`),
+    index (`user_name`),
+    index (`due_date`),
+    foreign key (`user_name`) references `user` (`user_name`),
+    foreign key (`deadline_status_id`) references `todo_status` (`todo_status_id`)
+)engine=innodb default charset=utf8;

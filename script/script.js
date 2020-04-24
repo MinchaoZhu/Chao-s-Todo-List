@@ -29,7 +29,7 @@ function currentDate(){
 
 function loadToday(){
     var d = new Date();
-    $(".date").html(d.toLocaleDateString()+" "+d.getDay()+" "+getWeekday(d.getDay())).attr("date", d.toLocaleDateString())
+    $(".date").html(d.toLocaleDateString()+" "+getWeekday(d.getDay())).attr("date", d.toLocaleDateString())
               .attr("timestamp", d.getTime());
 }
 
@@ -38,7 +38,7 @@ function loadAnotherDay(delta){
     var date = new Date(parseInt(time));
     date=date.setDate(date.getDate()+delta);
     date=new Date(date);
-    $(".date").html(date.toLocaleDateString()+" "+date.getDay()+" "+getWeekday(date.getDay())).attr("date", date.toLocaleDateString())
+    $(".date").html(date.toLocaleDateString()+" "+getWeekday(date.getDay())).attr("date", date.toLocaleDateString())
               .attr("timestamp", date.getTime());
     loadTodoList();
 }

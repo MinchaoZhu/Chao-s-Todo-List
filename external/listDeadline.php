@@ -9,8 +9,14 @@ function sync(){
         $username = $_POST["user_name"];
         if($username==$_SESSION["username"]){
             $todoSql = new TodoSql();
-            $date = $_POST["date"];
-            $result = $todoSql->listTodoByDate($username, $date);
+            $rawItemsArr = $todoSql->listDeadline($username);
+            $undoneItems = $rawItemsArr[0];
+            if($undoneItems=="")
+                $undoneItems="[]";
+            $doneItems = $rawItemsArr[1];
+            if($doneItems=="")
+                $doneItems = "[]";
+            $result = '[{"undone":'.$undoneItems.',"done":'.$doneItems.'}]';
             return $result;
         }
         else{

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Chao's Todo List</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -57,7 +57,7 @@
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
 
-    <div class="formFooter loginHint hide" style="color:rgb(163, 41, 51)"></div>
+    <div class="formFooter hint loginHint hide" style="color:rgb(163, 41, 51)"></div>
 
   </div>
 </div>
@@ -84,7 +84,7 @@
     </form>
 
     <button id="registerSubmit" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Sign Up</a></button>
-    <div class="formFooter registerHint hide" style="color:rgb(163, 41, 51)">
+    <div class="formFooter hint registerHint hide" style="color:rgb(163, 41, 51)">
     </div>
 
   </div>
@@ -115,7 +115,7 @@
     </form>
 
     <button id="addRegularTask" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Add</a></button>
-    <div class="formFooter regularHint hide" style="color:rgb(163, 41, 51)">
+    <div class="formFooter hint regularHint hide" style="color:rgb(163, 41, 51)">
     </div>
 
   </div>
@@ -139,13 +139,13 @@
       <input type="text"  class="fadeIn second" id="ddlDate" width="415" placeholder="Deadline"/>
 
     </div>
-    <!-- Add new task Form -->
+    <!-- Add new ddl task Form -->
     <form style="text-align: center;">
-      <input type="text"  class="fadeIn third" name="taskContent" placeholder="What do you need to do?">
+      <input type="text"  class="fadeIn third" id="ddl-detail" name="taskContent" placeholder="What do you need to do?">
     </form>
 
     <button id="addDeadline" class="fadeIn fourth formSubmit"><a href="#" style="color: white;">Add</a></button>
-    <div class="formFooter deadlineHint hide" style="color:rgb(163, 41, 51)">
+    <div class="formFooter hint deadlineHint hide" style="color:rgb(163, 41, 51)">
     </div>
 
   </div>
@@ -182,19 +182,26 @@
     </div>
   </nav>
 
+  <div class="date-wrapper shenlan">
+    <dic style="font-size:25px;padding-left: 2em;padding-right: 2em;padding-top:100px;"><a id="previousDay" href="#" class="shenlan"><i
+      class="far fa-arrow-alt-circle-left fa-2x"></i></a>
+    </dic>
+    <dic id="date" class="date"></dic><a href="#" id="restoreToday" class="shenlan"
+      style="padding-left: 0.5em;"><i class="fas fa-undo-alt fa-1x"></i></a>
+    <dic style="font-size:25px;padding-left: 2em;padding-right: 2em;padding-top:100px;"><a id="nextDay" class="shenlan" href="#"><i
+      class="far fa-arrow-alt-circle-right fa-2x"></i></a>
+    </dic>
+  </div>
 
 
   <div class="container">
+    
     <div class="row">
-      <div class="col padding-down">
-        <div style="text-align: center;"><a id="previousDay" href="#" class="shenlan"><i
-              class="far fa-arrow-alt-circle-left fa-3x"></i></a></div>
+      <div class="col padding-down" style="max-width: 370px">
+
       </div>
       <div class="col-7">
-        <div class="date-wrapper shenlan">
-          <dic id="date" class="date"></dic><a href="#" id="restoreToday" class="shenlan"
-            style="padding-left: 0.5em;"><i class="fas fa-undo-alt fa-1x"></i></a>
-        </div>
+      
         <div class="page-content page-container todo-container" id="midTodo">
           <div class="padding">
             <div class="row container d-flex justify-content-center no-margin">
@@ -217,9 +224,7 @@
           </div>
         </div>
       </div>
-      <div class="col padding-down">
-        <div style="text-align: center;"><a id="nextDay" class="shenlan" href="#"><i
-              class="far fa-arrow-alt-circle-right fa-3x"></i></a></div>
+      <div class="col padding-down" style="max-width: 370px;">
             <div style="padding-top: 2.5em;">
               <table>
                 <tr>
@@ -232,7 +237,23 @@
                 </tr>
               </table>
             </div>
-
+            <div class="row no-left-right-padding padding-down container d-flex justify-content-center no-margin">
+              <div class="col-lg-12 no-left-right-padding">
+                  <div class="card px-3 no-left-right-padding">
+                      <div class="card-body">                    <h4 class="card-title">Deadline</h4>
+                          <div class="list-wrapper">
+                              <!-- deadline undone -->
+                              <ul id="ddl-undone" class="d-flex flex-column-reverse">
+                              </ul>
+                              <hr>
+                              <!-- deadline done -->
+                              <ul id="ddl-done" class="d-flex flex-column-reverse">
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
@@ -262,5 +283,6 @@
 </script>
 <script src="./script/sync.js"></script>
 <script src="./script/addnew.js"></script>
+<script src="./script/deadline.js"></script>
 
 </html>

@@ -10,8 +10,11 @@ function sync(){
         if($username==$_SESSION["username"]){
             $todoSql = new TodoSql();
             $date = $_POST["date"];
-            $result = $todoSql->listTodoByDate($username, $date);
-            return $result;
+            $detail = $_POST["detail"];
+            if($todoSql->addDeadline($username, $detail, $date)){
+                return "success";
+            }
+            else return "failed";
         }
         else{
             return "Username Error";

@@ -9,16 +9,22 @@ function sync(){
         $username = $_POST["user_name"];
         if($username==$_SESSION["username"]){
             $todoSql = new TodoSql();
-            $date = $_POST["date"];
-            $result = $todoSql->listTodoByDate($username, $date);
-            return $result;
+            $ddlItems = $_POST["ddlItems"];
+            if($ddlItems=="null")
+                $ddlItems = array();
+            if($todoSql->syncDeadline($ddlItems, $username)){
+                return "success";
+            }
+            else{
+                return "false";
+            }
         }
         else{
             return "Username Error";
         }
     }
     else{
-        return "No login";
+        return " No login";
     }
 }
 

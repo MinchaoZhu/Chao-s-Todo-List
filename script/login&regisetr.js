@@ -21,6 +21,7 @@ $(document).ready(function(){
 });
 
 function closeForm(){
+    $(".formFooter").html("").addClass("hide");
     $(".form-wrapper").removeClass("block-flex");
     $(".form-wrapper").addClass("hide");
 }
@@ -104,6 +105,7 @@ function afterLogin(){
     $("#userBtn").removeClass("hide");
     $("#logoutBtn").removeClass("hide");
     loadTodoList();
+    fetchDdl();
 }
 
 function logout(){
