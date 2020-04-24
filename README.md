@@ -30,3 +30,19 @@ A cloud todo list Based on jQeury and php.
     - Original code by Angel Marin, Paul Johnston.
 - Php
 - Mysql 5.7
+
+## Usage
+1. Download sources and extract it on your www folder;
+2. Create a new mysql database on your host where you want to deploy it; 
+3. Create a new mysql account which can only access the new database (recommended);
+4. Execute queries in /sql/todo.sql;
+5. Modify database information in /core/Mysqlconnector.php according to the new-created database setting;
+6. Then you can access it through web broswer.
+Feel free to change any contents and use it according to MIT LICENSE.
+
+创建mysql数据库并修改/core/MysqlConnector.php里面的数据库链接信息.
+
+
+
+
+
