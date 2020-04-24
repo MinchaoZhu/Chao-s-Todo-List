@@ -49,6 +49,9 @@ function loadTodoList(date) {
     $('.todo-list').empty();
     var username = $("#userBtn").attr("username");
     var date = $("#date").attr("date");
+    var newDate = new Date(date);
+    date = newDate.getFullYear()+"-"+((newDate.getMonth()+1)<10 ? '0' : '') + (newDate.getMonth()+1) + '-' +
+    (newDate.getDate()<10 ? '0' : '') + newDate.getDate();
     if (username != "" && date != "") {
         $.ajax({
             type: "POST",

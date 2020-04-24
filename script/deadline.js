@@ -106,7 +106,7 @@ function loadDdl(data){
     $(".ddl-sync").on("click", function () {
         setTimeout(function(){
             syncDdl();
-        }, 50);
+        }, 20);
     });
 }
 
